@@ -80,7 +80,7 @@ const About = () => {
                         {/* Bio Text */}
                         <div className="space-y-6" data-stagger-item>
                             <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                                I'm a <span className="font-semibold text-emerald-600 dark:text-emerald-400">Senior Frontend Developer</span> and <span className="font-semibold text-emerald-600 dark:text-emerald-400">UI/UX Designer</span> based in Phnom Penh, Cambodia.
+                                {`I'm a`} <span className="font-semibold text-emerald-600 dark:text-emerald-400">Senior Frontend Developer</span> and <span className="font-semibold text-emerald-600 dark:text-emerald-400">UI/UX Designer</span> based in Phnom Penh, Cambodia.
                             </p>
 
                             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -92,10 +92,10 @@ const About = () => {
                             </p>
 
                             <div className="pt-4 flex gap-4 flex-wrap">
-                                <a href="#" className="inline-block px-6 py-2 bg-emerald-500/10 border border-emerald-500 text-emerald-600 dark:text-emerald-400 rounded-2xl font-semibold hover:bg-emerald-500/20 transition-colors">
+                                <a href="#" className="inline-block px-6 py-2 bg-emerald-500/10 border border-emerald-500 text-emerald-600 dark:text-emerald-400 rounded-2xl font-medium hover:bg-emerald-500/20 transition-colors">
                                     View Resume
                                 </a>
-                                <a href="#contact" className="inline-block px-6 py-2 bg-green-500 text-white rounded-2xl font-semibold hover:bg-green-600 transition-colors hover-effect-btn">
+                                <a href="#contact" className="inline-block px-6 py-2 bg-linear-to-br from-teal-500 to-green-500 via-green-500 text-white rounded-2xl font-medium hover:bg-green-600 transition-colors hover-effect-btn">
                                     Get In Touch
                                 </a>
                             </div>
@@ -150,7 +150,7 @@ const About = () => {
                                 <div className="flex flex-col items-center">
                                     <div className="size-4 rounded-full bg-emerald-500 mt-2"></div>
                                     {index !== experiences.length - 1 && (
-                                        <div className="w-0.5 h-24 bg-gray-300 dark:bg-gray-700 mt-2"></div>
+                                        <div className="w-0.5 h-24 bg-gray-300 dark:bg-gray-700"></div>
                                     )}
                                 </div>
 

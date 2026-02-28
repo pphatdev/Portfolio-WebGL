@@ -12,6 +12,7 @@ const Hero = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
     const subtitleRef = useRef<HTMLParagraphElement>(null);
     const ctaRef = useRef<HTMLDivElement>(null);
+    const sceneRef = useRef<HTMLDivElement>(null);
     const path1Ref = useRef<SVGPolygonElement>(null);
     const path2Ref = useRef<SVGPolygonElement>(null);
 
@@ -22,8 +23,17 @@ const Hero = () => {
             scale: [0.8, 1],
             opacity: [0, 1],
             easing: 'easeOutElastic(1, .6)',
-            duration: 1400,
-            delay: 300,
+            duration: 1820,
+            delay: 390,
+        });
+
+        // Animation for particle scene fade in
+        anime({
+            targets: sceneRef.current,
+            opacity: [0, 1],
+            easing: 'easeInOutQuad',
+            duration: 1560,
+            delay: 0,
         });
 
         // Animation text
@@ -32,8 +42,8 @@ const Hero = () => {
             translateY: [50, 0],
             opacity: [0, 1],
             easing: 'easeOutExpo',
-            duration: 1200,
-            delay: anime.stagger(200, { start: 800 }),
+            duration: 1560,
+            delay: anime.stagger(260, { start: 1040 }),
         });
 
         // Morphing border animation with smooth dynamic transitions
@@ -70,7 +80,7 @@ const Hero = () => {
                     { value: path2Ref.current.getAttribute('points') || '' }
                 ],
                 easing: 'easeInOutQuad',
-                duration: 3000, // Slower for smoother transitions
+                duration: 3900, // Slower for smoother transitions
                 complete: () => {
                     // Continue infinite morphing loop
                     if (path2Ref.current) {
@@ -84,7 +94,7 @@ const Hero = () => {
         // Start morphing animation after profile entrance
         const morphTimeout = setTimeout(() => {
             animateMorphingBorder();
-        }, 1500);
+        }, 1950);
 
         return () => clearTimeout(morphTimeout);
     }, []);
@@ -93,20 +103,24 @@ const Hero = () => {
         <section id="hero" className="relative h-screen min-h-150 pt-10 flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-950">
 
             {/* Background 3D Scene */}
-            <ParticleScene />
+            <div ref={sceneRef} className="opacity-0">
+                <ParticleScene />
+            </div>
 
             <div className="relative z-10 text-center px-4 max-w-6xl mx-auto pointer-events-none">
                 {/* Profile Center Design */}
                 <div ref={profileRef} className="relative inline-block mb-12 opacity-0">
                     {/* Decorative Rings */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="absolute size-60 rounded-full border-2 border-dashed border-emerald-500/30 dark:border-emerald-400/30 animate-spin-slow"></div>
-                        <div className="absolute size-72 rounded-full border-2 border-dashed border-emerald-500/30 dark:border-emerald-400/30 animate-spin-slow"></div>
-                        <div className="absolute size-80 rounded-full border-2 border-dashed border-green-500/20 dark:border-green-400/20 animate-spin-reverse"></div>
+                        <div className="absolute size-47 z-10 rounded-full border-2 border-emerald-500 dark:border-emerald-400/30 animate-spin-slow"></div>
+                        <div className="absolute size-58.25 rounded-full border-2 border-dashed border-emerald-500/30 dark:border-emerald-400/30 animate-spin-slow"></div>
+                        <div className="absolute size-69.75 rounded-full border-2 border-dashed border-emerald-500/30 dark:border-emerald-400/30 animate-spin-slow"></div>
+                        <div className="absolute size-77.5 rounded-full border border-dashed border-green-500/20 dark:border-green-400/20 animate-spin-reverse"></div>
+                        <div className="absolute size-58.25 rounded-full border-2 border-solid border-emerald-500 dark:border-emerald-400 animate-ping [animation-duration:2500ms] opacity-40"></div>
                     </div>
 
                     {/* Main Profile Circle with Morphing SVG Border */}
-                    <div className="relative w-48 h-48 md:w-52 md:h-52">
+                    <div className="relative size-46.5 md:size-50.5">
                         {/* Inner Circle Container */}
                         <div className="absolute inset-0 rounded-full bg-gray-50 dark:bg-gray-950 m-2 flex items-center justify-center overflow-hidden shadow-2xl">
                             <Image
@@ -137,16 +151,20 @@ const Hero = () => {
                 {/* Title & Content */}
                 <h1
                     ref={titleRef}
-                    className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 text-gray-900 dark:text-white leading-tight tracking-tight opacity-0"
+                    className="text-[2.18rem] md:text-[3.64rem] lg:text-[4.37rem] font-black mb-4 text-gray-900 dark:text-white leading-tight tracking-tight opacity-0"
                 >
+                    <span className='sr-only'> Sophat LEAT known as </span>
                     <span className="bg-clip-text text-transparent bg-linear-to-br from-teal-500 via-green-500 to-green-500">
-                        Sophat LEAT
+                        PPhat
+                    </span>
+                    <span className="bg-clip-text pr-4 italic font-thin text-transparent bg-linear-to-br from-teal-500 via-teal-500 to-teal-500">
+                        DEV
                     </span>
                 </h1>
 
                 <p
                     ref={subtitleRef}
-                    className="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto font-light opacity-0"
+                    className="text-[1.09rem] md:text-[1.21rem] lg:text-[1.46rem] text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto font-light opacity-0"
                 >
                     Vibe Coder • UI/UX Designer • Senior Frontend Developer
                     <br />
@@ -159,13 +177,13 @@ const Hero = () => {
                     <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                         <a
                             href="#portfolio"
-                            className="hover-effect-btn inline-block px-8 py-4 bg-linear-to-br from-emerald-500 to-green-600 text-white rounded-full font-bold text-base shadow-xl hover:shadow-2xl"
+                            className="hover-effect-btn inline-block px-6 py-2.5 bg-linear-to-br from-emerald-500 to-green-600 text-white rounded-2xl font-medium text-base shadow-xl hover:shadow-2xl"
                         >
                             View Portfolio
                         </a>
                         <a
                             href="#contact"
-                            className="hover-effect-btn inline-block px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-full font-bold text-base shadow-lg hover:shadow-xl"
+                            className="hover-effect-btn inline-block px-6 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-2xl font-medium text-base shadow-lg hover:shadow-xl"
                         >
                             Get In Touch
                         </a>

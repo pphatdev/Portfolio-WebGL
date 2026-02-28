@@ -1,0 +1,14 @@
+@keyframes slideInDown {
+  from {
+    transform: translateY(-1.5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slideIn {
+  animation: slideInDown 0.7s ease-out forwards;
+}
