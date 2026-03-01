@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import anime from 'animejs';
+import Button from '@/components/common/Button';
+import { Mail, Projector, Shield, Terminal } from 'lucide-react';
 
 const ParticleScene = dynamic(() => import('@/components/animation/ParticleScene'), { ssr: false });
 
@@ -100,7 +102,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="hero" className="relative h-screen min-h-150 pt-10 flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gray-950">
+        <section id="hero" className="relative h-screen min-h-150 pt-20 flex items-center justify-center overflow-hidden bg-gray-950">
 
             {/* Background 3D Scene */}
             <div ref={sceneRef} className="opacity-0">
@@ -112,17 +114,17 @@ const Hero = () => {
                 <div ref={profileRef} className="relative inline-block mb-12 opacity-0">
                     {/* Decorative Rings */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="absolute size-47 z-10 rounded-full border-2 border-emerald-500 dark:border-emerald-400/30 animate-spin-slow"></div>
-                        <div className="absolute size-58.25 rounded-full border-2 border-dashed border-emerald-500/30 dark:border-emerald-400/30 animate-spin-slow"></div>
-                        <div className="absolute size-69.75 rounded-full border-2 border-dashed border-emerald-500/30 dark:border-emerald-400/30 animate-spin-slow"></div>
-                        <div className="absolute size-77.5 rounded-full border border-dashed border-green-500/20 dark:border-green-400/20 animate-spin-reverse"></div>
-                        <div className="absolute size-58.25 rounded-full border-2 border-solid border-emerald-500 dark:border-emerald-400 animate-ping [animation-duration:2500ms] opacity-40"></div>
+                        <div className="absolute size-47 z-10 rounded-full border-2 border-emerald-400/30 animate-spin-slow"></div>
+                        <div className="absolute size-58.25 rounded-full border-2 border-dashed border-emerald-400/30 animate-spin-slow"></div>
+                        <div className="absolute size-69.75 rounded-full border-2 border-dashed border-emerald-400/30 animate-spin-slow"></div>
+                        <div className="absolute size-77.5 rounded-full border border-dashed border-green-400/20 animate-spin-reverse"></div>
+                        <div className="absolute size-58.25 rounded-full border-2 border-solid border-emerald-400 animate-ping [animation-duration:2500ms] opacity-40"></div>
                     </div>
 
                     {/* Main Profile Circle with Morphing SVG Border */}
                     <div className="relative size-46.5 md:size-50.5">
                         {/* Inner Circle Container */}
-                        <div className="absolute inset-0 rounded-full bg-gray-50 dark:bg-gray-950 m-2 flex items-center justify-center overflow-hidden shadow-2xl">
+                        <div className="absolute inset-0 rounded-full bg-gray-950 m-2 flex items-center justify-center overflow-hidden shadow-2xl">
                             <Image
                                 src="/avatar.webp"
                                 alt="Sophat LEAT avatar"
@@ -134,25 +136,22 @@ const Hero = () => {
                         </div>
 
                         {/* Status Badge */}
-                        <div className="absolute bottom-2 right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-gray-50 dark:border-gray-950 flex items-center justify-center shadow-lg z-10">
+                        <div className="absolute bottom-2 right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-gray-950 flex items-center justify-center shadow-lg z-10">
                             <span className="w-3 h-3 bg-white rounded-full animate-pulse"></span>
                         </div>
 
                         {/* Floating Badges */}
-                        <div className="absolute -top-4 -right-4 bg-gray-800 p-2 rounded-full shadow-xl border border-gray-200 dark:border-gray-700 animate-float z-10">
+                        <div className="absolute -top-4 -right-4 bg-gray-800 p-2 rounded-full shadow-xl border border-gray-700 animate-float z-10">
                             <span className="text-2xl">🎨</span>
                         </div>
-                        <div className="absolute -bottom-2 -left-4 bg-gray-800 p-2 rounded-full shadow-xl border border-gray-200 dark:border-gray-700 animate-float-delay z-10">
+                        <div className="absolute -bottom-2 -left-4 bg-gray-800 p-2 rounded-full shadow-xl border border-gray-700 animate-float-delay z-10">
                             <span className="text-2xl">💻</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Title & Content */}
-                <h1
-                    ref={titleRef}
-                    className="text-[2.18rem] md:text-[3.64rem] lg:text-[4.37rem] font-black mb-4 text-gray-900 dark:text-white leading-tight tracking-tight opacity-0"
-                >
+                <h1 ref={titleRef} className="text-[2.18rem] md:text-[3.64rem] lg:text-[3.5rem] font-black mb-4 text-white leading-tight tracking-tight opacity-0" >
                     <span className='sr-only'> Sophat LEAT known as </span>
                     <span className="bg-clip-text text-transparent bg-linear-to-br from-teal-500 via-green-500 to-green-500">
                         PPhat
@@ -162,31 +161,22 @@ const Hero = () => {
                     </span>
                 </h1>
 
-                <p
-                    ref={subtitleRef}
-                    className="text-[1.09rem] md:text-[1.21rem] lg:text-[1.46rem] text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto font-light opacity-0"
-                >
-                    Vibe Coder • UI/UX Designer • Senior Frontend Developer
+                <p ref={subtitleRef} className="text-[1.09rem] md:text-[1.21rem] lg:text-[1.25rem] text-gray-300 mb-8 max-w-2xl mx-auto font-light opacity-0" >
+                    Vibe Coding Developer • UI/UX Designer • Senior Frontend Developer
                     <br />
-                    <span className="text-sm md:text-base text-gray-500 dark:text-gray-400">
+                    <span className="text-sm md:text-base text-gray-400">
                         Crafting immersive 3D experiences & brand identities
                     </span>
                 </p>
 
-                <div className="pointer-events-auto opacity-0" ref={ctaRef}>
-                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                        <a
-                            href="#portfolio"
-                            className="hover-effect-btn inline-block px-6 py-2.5 bg-linear-to-br from-emerald-500 to-green-600 text-white rounded-2xl font-medium text-base shadow-xl hover:shadow-2xl"
-                        >
-                            View Portfolio
-                        </a>
-                        <a
-                            href="#contact"
-                            className="hover-effect-btn inline-block px-6 py-2.5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 rounded-2xl font-medium text-base shadow-lg hover:shadow-xl"
-                        >
+                <div className="pointer-events-auto opacity-0 mt-5" ref={ctaRef}>
+                    <div className="flex flex-row gap-2 sm:gap-9 items-center justify-center">
+                        <Button variant="hud" href="#portfolio" icon={Projector} role="Projects">
+                            Show Case
+                        </Button>
+                        <Button href='#contact' hudStyle icon={Mail} role="Contact">
                             Get In Touch
-                        </a>
+                        </Button>
                     </div>
                 </div>
             </div>
