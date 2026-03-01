@@ -102,7 +102,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="hero" className="relative h-screen min-h-150 pt-20 flex items-center justify-center overflow-hidden bg-gray-950">
+        <section id="hero" className="relative h-screen min-h-150 border-b border-blue-900/40 pt-20 flex items-center justify-center">
 
             {/* Background 3D Scene */}
             <div ref={sceneRef} className="opacity-0">
@@ -125,27 +125,30 @@ const Hero = () => {
                     <div className="relative size-46.5 md:size-50.5">
                         {/* Inner Circle Container */}
                         <div className="absolute inset-0 rounded-full bg-gray-950 m-2 flex items-center justify-center overflow-hidden shadow-2xl">
-                            <Image
-                                src="/avatar.webp"
-                                alt="Sophat LEAT avatar"
-                                fill
-                                priority
-                                sizes="(max-width: 768px) 192px, 208px"
-                                className="object-cover"
-                            />
+                            <Image src="/avatar.webp" alt="Sophat LEAT avatar" fill priority sizes="(max-width: 768px) 192px, 208px" className="object-cover" />
                         </div>
 
                         {/* Status Badge */}
-                        <div className="absolute bottom-2 right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-gray-950 flex items-center justify-center shadow-lg z-10">
+                        <div className="absolute bottom-2 right-2 bg-green-500 size-7 rounded-full border-4 border-gray-950/50 flex items-center justify-center shadow-lg z-10">
                             <span className="w-3 h-3 bg-white rounded-full animate-pulse"></span>
                         </div>
 
                         {/* Floating Badges */}
-                        <div className="absolute -top-4 -right-4 bg-gray-800 p-2 rounded-full shadow-xl border border-gray-700 animate-float z-10">
-                            <span className="text-2xl">🎨</span>
+                        <div className="absolute -top-4 -right-4 bg-gray-800/10 p-1 shadow-xl border border-gray-700/10 animate-float z-10">
+                            {/* Corner accents */}
+                            <span className="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-emerald-400/60"></span>
+                            <span className="absolute -top-1 -right-1 w-2 h-2 border-t-2 border-r-2 border-emerald-400/60"></span>
+                            <span className="absolute -bottom-1 -left-1 w-2 h-2 border-b-2 border-l-2 border-emerald-400/60"></span>
+                            <span className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-emerald-400/60"></span>
+                            <span className="text-xl relative z-10">😎</span>
                         </div>
-                        <div className="absolute -bottom-2 -left-4 bg-gray-800 p-2 rounded-full shadow-xl border border-gray-700 animate-float-delay z-10">
-                            <span className="text-2xl">💻</span>
+                        <div className="absolute -bottom-2 -left-4 bg-gray-800/10 p-1 shadow-xl border border-gray-700/10 animate-float-delay z-10">
+                            {/* Corner accents */}
+                            <span className="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-emerald-400/60"></span>
+                            <span className="absolute -top-1 -right-1 w-2 h-2 border-t-2 border-r-2 border-emerald-400/60"></span>
+                            <span className="absolute -bottom-1 -left-1 w-2 h-2 border-b-2 border-l-2 border-emerald-400/60"></span>
+                            <span className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-emerald-400/60"></span>
+                            <span className="text-xl relative z-10">💻</span>
                         </div>
                     </div>
                 </div>
@@ -164,17 +167,17 @@ const Hero = () => {
                 <p ref={subtitleRef} className="text-[1.09rem] md:text-[1.21rem] lg:text-[1.25rem] text-gray-300 mb-8 max-w-2xl mx-auto font-light opacity-0" >
                     Vibe Coding Developer • UI/UX Designer • Senior Frontend Developer
                     <br />
-                    <span className="text-sm md:text-base text-gray-400">
-                        Crafting immersive 3D experiences & brand identities
+                    <span className="text-sm pt-2 md:text-base text-gray-400">
+                        This portfolio showcases my journey, projects, and passions as a developer and creator. Explore my work, check out my skills, and feel free to connect if you'd like to collaborate or learn more.
                     </span>
                 </p>
 
                 <div className="pointer-events-auto opacity-0 mt-5" ref={ctaRef}>
-                    <div className="flex flex-row gap-2 sm:gap-9 items-center justify-center">
+                    <div className="flex flex-row gap-2 sm:gap-9 items-center justify-center max-w-xl mx-auto">
                         <Button variant="hud" href="#portfolio" icon={Projector} role="Projects">
                             Show Case
                         </Button>
-                        <Button href='#contact' hudStyle icon={Mail} role="Contact">
+                        <Button href='#contact' hudStyle icon={Mail} role="Contact" className='sm:translate-x-2.5'>
                             Get In Touch
                         </Button>
                     </div>
