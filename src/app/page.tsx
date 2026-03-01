@@ -9,41 +9,43 @@ import SectionReveal from '@/components/common/SectionReveal';
 import { useScrollHash } from '@/hooks/useScrollHash';
 import Experience from '@/components/home/Experience';
 import TechStack from '@/components/home/TechStack';
+import { CosmicBackground } from '@/components/layout/CosmicBackground';
 
 export default function Home() {
     useScrollHash();
 
     return (
-        <div className="flex flex-col min-h-screen bg-black">
-            <section id="hero">
+        <div className="flex flex-col min-h-screen">
+            <CosmicBackground/>
+            <section id="hero" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <Hero />
             </section>
-            <section id="about">
+            <section id="about" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <SectionReveal delay={0} direction="up">
                     <About />
                 </SectionReveal>
             </section>
-            <section id="tech-stack">
+            <section id="tech-stack" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <SectionReveal delay={0} direction="up">
                     <TechStack />
                 </SectionReveal>
             </section>
-            <section id="experience">
+            <section id="experience" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <SectionReveal delay={0} direction="up">
                     <Experience />
                 </SectionReveal>
             </section>
-            <section id="portfolio">
+            <section id="portfolio" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <SectionReveal delay={80} direction="up">
                     <Portfolio />
                 </SectionReveal>
             </section>
-            <section id="blog">
+            {/* <section id="blog" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <SectionReveal delay={120} direction="up">
                     <Blog />
                 </SectionReveal>
-            </section>
-            <section id="contact">
+            </section> */}
+            <section id="contact" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <SectionReveal delay={160} direction="up">
                     <Contact />
                 </SectionReveal>

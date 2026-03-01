@@ -16,7 +16,7 @@ const Header = () => {
                     </span>
                 </Link>
 
-                <nav className="hidden md:flex items-center gap-6">
+                {/* <nav className="hidden md:flex items-center gap-6">
                     <Link href="#about" className="text-sm font-medium text-gray-300 transition-colors hover:text-green-400">
                         About
                     </Link>
@@ -29,7 +29,7 @@ const Header = () => {
                     <Link href="#contact" className="text-sm font-medium text-gray-300 transition-colors hover:text-green-400">
                         Contact
                     </Link>
-                </nav>
+                </nav> */}
 
                 <div className="flex items-center">
                     <Button variant="primary" href="/" asLink target="_blank" rel="noopener noreferrer">
