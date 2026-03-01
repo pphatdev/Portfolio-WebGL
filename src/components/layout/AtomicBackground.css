@@ -1,0 +1,112 @@
+.atomic-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Background star texture */
+.stars-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 90px 40px, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0));
+    background-size: 200px 200px;
+    opacity: 0.15;
+}
+
+.atomic-svg {
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.1));
+}
+
+/* Rotation for the 3 different orbit groups */
+.orbit-1 {
+    transform: rotate(0deg);
+    transform-origin: center;
+}
+
+.orbit-2 {
+    transform: rotate(120deg);
+    transform-origin: center;
+}
+
+.orbit-3 {
+    transform: rotate(240deg);
+    transform-origin: center;
+}
+
+/* The actual electron movement */
+.electron {
+    /* This creates the path the electron follows */
+    offset-path: ellipse(140px 50px at center);
+    animation: move-electron var(--duration, 4s) infinite linear;
+}
+
+.orbit-1 .electron {
+    --duration: 5s;
+}
+
+.orbit-2 .electron {
+    --duration: 3.5s;
+    animation-delay: -1s;
+}
+
+.orbit-3 .electron {
+    --duration: 6s;
+    animation-delay: -2s;
+}
+
+@keyframes move-electron {
+    from {
+        offset-distance: 0%;
+    }
+
+    to {
+        offset-distance: 100%;
+    }
+}
+
+/* Nucleus Pulse Animation */
+.pulse {
+    animation: nucleus-pulse 3s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes nucleus-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.4;
+    }
+}
+
+/* Optional: rotate the whole SVG slowly for extra motion */
+.atomic-svg {
+    animation: slow-rotate 60s infinite linear;
+}
+
+@keyframes slow-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
