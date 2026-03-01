@@ -26,6 +26,8 @@ interface TechStackCardProps {
 }
 
 const TechStackCard: React.FC<TechStackCardProps> = ({ icon: Icon, title, subtitle, delay, color }) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -37,20 +39,22 @@ const TechStackCard: React.FC<TechStackCardProps> = ({ icon: Icon, title, subtit
                 boxShadow: `0 0 20px ${color}00`,
             }}
             onMouseEnter={(e) => {
+                setIsHovered(true);
                 e.currentTarget.style.borderColor = `${color}cc`;
                 e.currentTarget.style.boxShadow = `0 0 20px ${color}66`;
             }}
             onMouseLeave={(e) => {
+                setIsHovered(false);
                 e.currentTarget.style.borderColor = `${color}30`;
                 e.currentTarget.style.boxShadow = `0 0 20px ${color}00`;
             }}
         >
-            <div className="mb-4 p-4 transition-colors">
+            <div className="p-1 pb-2 transition-colors">
                 <Icon
                     className="size-14 transition-all"
                     style={{
                         color,
-                        filter: `drop-shadow(0 0 10px ${color}dd) brightness(1.1)`,
+                        filter: isHovered ? `drop-shadow(0 0 10px ${color}dd) brightness(1.1)` : 'none',
                         opacity: 0.95
                     }}
                 />
@@ -107,17 +111,17 @@ const techStackData = [
 
 const TechStack = () => {
     const techStack = useMemo(() => {
-        return techStackData.map((tech) => ({
+        return techStackData.map((tech, index) => ({
             ...tech,
-            color: colors[Math.floor(Math.random() * colors.length)],
+            color: colors[index % colors.length],
         }));
     }, []);
 
     return (
         <div data-stagger-item>
-            <nav className="border-b border-slate-900 bg-slate-950/50 backdrop-blur-sm sticky top-0 z-50">
+            <nav className="backdrop-blur-sm sticky top-0 z-50">
                 <div className="max-w-6xl mx-auto flex gap-8">
-                    <h1 className={`relative px-6 py-4 text-sm transition-all text-cyan-400 font-bold`}>
+                    <h1 className={`relative px-6 py-4 text-lg transition-all text-cyan-400 font-medium`}>
                         Tech Stack
                         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-500 to-transparent" />
                     </h1>
