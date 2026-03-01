@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 // @ts-ignore
 import "./globals.css";
+import { CosmicBackground } from "@/components/layout/CosmicBackground";
 
 const poppins = Poppins({
     variable: "--font-poppins",
@@ -14,7 +15,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-    title: "P.Phat | Creative Portfolio",
+    title: "Sophat L. | Creative Portfolio",
     description: "Showcasing UI/UX, Branding, and Creative Direction.",
 };
 
@@ -26,6 +27,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <body className={`${poppins.variable} antialiased`}>
+                <CosmicBackground/>
                 <Header />
                 <main>
                     {children}

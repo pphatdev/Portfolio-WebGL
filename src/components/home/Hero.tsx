@@ -102,14 +102,14 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="hero" className="relative h-screen min-h-150 border-b border-blue-900/40 pt-20 flex items-center justify-center">
+        <div className="relative h-screen min-h-150 border-b border-blue-900/40 pt-20 flex items-center justify-center">
 
             {/* Background 3D Scene */}
             <div ref={sceneRef} className="opacity-0">
                 <ParticleScene />
             </div>
 
-            <div className="relative z-10 text-center px-4 max-w-6xl mx-auto pointer-events-none">
+            <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
                 {/* Profile Center Design */}
                 <div ref={profileRef} className="relative inline-block mb-12 opacity-0">
                     {/* Decorative Rings */}
@@ -190,7 +190,7 @@ const Hero = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
             </div>
-        </section>
+        </div>
     );
 };
 

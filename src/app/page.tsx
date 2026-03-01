@@ -3,21 +3,18 @@
 import Hero from '@/components/home/Hero';
 import About from '@/components/home/About';
 import Portfolio from '@/components/home/Portfolio';
-import Blog from '@/components/home/Blog';
 import Contact from '@/components/home/Contact';
 import SectionReveal from '@/components/common/SectionReveal';
 import { useScrollHash } from '@/hooks/useScrollHash';
 import Experience from '@/components/home/Experience';
 import TechStack from '@/components/home/TechStack';
-import { CosmicBackground } from '@/components/layout/CosmicBackground';
 
 export default function Home() {
     useScrollHash();
 
     return (
-        <div className="flex flex-col min-h-screen">
-            <CosmicBackground/>
-            <section id="hero" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
+        <div className="flex flex-col min-h-screen overflow-x-hidden">
+            <section id="hero" className='bg-linear-to-b pt-10 sm:pt-24 from-blue-800/10 via-indigo-500/10 to-blue-800/10'>
                 <Hero />
             </section>
             <section id="about" className='bg-linear-to-b from-blue-800/10 via-indigo-500/10 to-blue-800/10'>

@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from 'react';
 
 interface Star {
@@ -102,7 +103,7 @@ export const CosmicBackground: React.FC = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 -z-10 w-full h-full"
+            className="fixed inset-0 -z-10 overflow-hidden"
         />
     );
 };
