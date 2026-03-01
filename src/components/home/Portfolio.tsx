@@ -1,53 +1,186 @@
-import React from 'react';
+'use client';
+
+import { Terminal, Code2, Github, ExternalLink, BarChart3, Zap } from 'lucide-react';
+import Button from '../common/Button';
 
 const projects = [
-    { id: 1, title: 'Modern E-commerce', category: 'UI/UX Design', color: 'bg-emerald-500' },
-    { id: 2, title: 'Finance Dashboard', category: 'Web Development', color: 'bg-green-600' },
-    { id: 3, title: 'Tech Brand Identity', category: 'Branding', color: 'bg-emerald-500' },
-    { id: 4, title: '3D Product Viewer', category: '3D Graphics', color: 'bg-orange-500' },
-    { id: 5, title: 'Fitness Tracker App', category: 'Mobile App', color: 'bg-rose-500' },
-    { id: 6, title: 'Virtual Gallery', category: 'Creative Direction', color: 'bg-violet-600' },
+    {
+        id: 1,
+        title: 'Portfolio-WebGL',
+        status: 'DEPLOYED',
+        desc: 'An immersive 3D portfolio experience built with WebGL technologies. Features interactive particle systems and smooth animations.',
+        tags: ['webgl', 'three.js', 'react', 'creative'],
+        github: '#',
+        live: '#'
+    },
+    {
+        id: 2,
+        title: 'Github Stats',
+        status: 'ACTIVE',
+        desc: 'Visualizing GitHub profile statistics and contributions in a stunning way. Real-time data visualization dashboard.',
+        tags: ['react', 'api', 'data-viz', 'github'],
+        github: '#',
+        live: '#'
+    },
+    {
+        id: 3,
+        title: 'Stats Studio',
+        status: 'DEPLOYED',
+        desc: 'A comprehensive analytics dashboard for tracking personal coding statistics with detailed insights and metrics.',
+        tags: ['analytics', 'dashboard', 'typescript', 'next.js'],
+        github: '#',
+        live: '#'
+    },
+    {
+        id: 4,
+        title: 'pxp cli',
+        status: 'STABLE',
+        desc: 'Personal Xampp Php Version Manager - A CLI tool to manage PHP versions easily with intuitive commands.',
+        tags: ['cli', 'php', 'node.js', 'tooling'],
+        github: '#',
+        live: '#'
+    },
+    {
+        id: 5,
+        title: 'File Management System',
+        status: 'PRODUCTION',
+        desc: 'A robust web-based file management system for efficient asset organization with cloud integration.',
+        tags: ['web-app', 'laravel', 'storage', 'api'],
+        github: '#',
+        live: '#'
+    },
+    {
+        id: 6,
+        title: 'Portfolio V5',
+        status: 'LIVE',
+        desc: 'The fifth iteration of my personal portfolio, featuring modern design and stack with cutting-edge technologies.',
+        tags: ['next.js', 'tailwind', 'portfolio', 'responsive'],
+        github: '#',
+        live: 'https://pphat.stackdev.cloud'
+    },
+    {
+        id: 7,
+        title: 'Nintrea Website',
+        status: 'LIVE',
+        desc: 'The official website for the Nintrea community, connecting developers and fostering collaboration.',
+        tags: ['community', 'web', 'nuxt', 'ssr'],
+        github: '#',
+        live: 'https://nintrea.top'
+    },
+    {
+        id: 8,
+        title: 'eLibrary of Nintrea',
+        status: 'LIVE',
+        desc: 'A digital library platform providing resources for the Khmer developer community with curated content.',
+        tags: ['education', 'cms', 'blogger', 'resources'],
+        github: '#',
+        live: 'https://elibraryofkhmer.blogspot.com'
+    },
+    {
+        id: 9,
+        title: 'Student Management System',
+        status: 'BETA',
+        desc: 'A comprehensive system for managing student data, grades, and attendance with automated reporting.',
+        tags: ['management', 'php', 'mysql', 'education'],
+        github: '#',
+        live: '#'
+    }
 ];
+
+const skills = [
+    { name: 'REACT / NEXT.JS', level: '95%' },
+    { name: 'TYPESCRIPT', level: '90%' },
+    { name: 'NODE.JS / DENO', level: '85%' },
+    { name: 'TAILWIND CSS', level: '95%' },
+    { name: 'PHP / LARAVEL', level: '88%' },
+    { name: 'THREE.JS / WEBGL', level: '75%' },
+];
+
 
 const Portfolio = () => {
     return (
-        <section id="portfolio" className="py-20 bg-gray-900">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-br from-emerald-500 to-green-600 mb-4">
-                        Selected Works
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                        A collection of projects showcasing my expertise in design and development.
-                    </p>
+        <div className="min-h-screen bg-[#05070a] text-slate-200 flex flex-col">
+            {/* Navigation Tabs */}
+            <nav className="border-b border-slate-900 bg-slate-950/50 backdrop-blur-sm sticky top-0 z-50">
+                <div className="max-w-6xl mx-auto flex gap-8">
+                    <h1 className={`relative px-6 py-4 text-sm transition-all text-cyan-400 font-bold`}>
+                        Show Case Project
+                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-500 to-transparent" />
+                    </h1>
                 </div>
+            </nav>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project) => (
-                        <div key={project.id} className="group relative overflow-hidden rounded-2xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
-                            <div className={`relative h-64 w-full ${project.color} flex items-center justify-center text-white text-4xl font-bold opacity-80 group-hover:opacity-100 transition-all duration-500`}>
-                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-                                <span className="relative z-10 group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-500">
-                                    {project.id}
-                                </span>
-                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                                    <span className="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-white/20 backdrop-blur-sm border border-white/30 text-white">
-                                        View Project
-                                    </span>
+            {/* Main Content Area */}
+            <div className="flex-1 relative p-7 sm:p-10 max-w-6xl mx-auto">
+                <div
+                    className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                    style={{
+                        backgroundImage: 'linear-gradient(#22d3ee 1px, transparent 1px), linear-gradient(90deg, #22d3ee 1px, transparent 1px)',
+                        backgroundSize: '50px 50px'
+                    }}
+                />
+
+                <div className="relative z-10">
+                    <div className="grid grid-cols-1 gap-6">
+                        {projects.slice(0, 4).map((proj) => (
+                            <div
+                                key={proj.id}
+                                className="group relative bg-slate-950/40 border border-slate-900 hover:border-cyan-500/40 transition-all duration-500"
+                            >
+                                <div className="p-3 sm:p-8 flex flex-col md:flex-row gap-8">
+                                    <div className="w-full md:w-48 h-32 bg-slate-900 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+                                        <Code2 size={40} className="text-slate-800 group-hover:text-cyan-900 transition-colors" />
+                                        <div className="absolute top-2 left-2 text-[8px] font-mono text-slate-700">IMG_PREVIEW</div>
+                                    </div>
+
+                                    <div className="flex-1 space-y-4">
+                                        <div className="flex justify-between items-start">
+                                            <h3 className="text-2xl font-bold text-cyan-400">{proj.title}</h3>
+                                            <span className="text-[10px] font-mono px-2 py-0.5 border border-emerald-500/30 text-emerald-400">
+                                                {proj.status}
+                                            </span>
+                                        </div>
+                                        <p className="text-slate-400 text-sm leading-relaxed">{proj.desc}</p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {proj.tags.map(tag => (
+                                                <span key={tag} className="text-[9px] font-mono text-slate-500 bg-slate-900 px-2 py-1" >
+                                                    #{tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex md:flex-col justify-end gap-3">
+                                        <a
+                                            href={proj.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-2 border border-slate-800 hover:border-cyan-500 hover:text-cyan-400 transition-all"
+                                        >
+                                            <Github size={18} />
+                                        </a>
+                                        <a
+                                            href={proj.live}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-2 border border-slate-800 hover:border-cyan-500 hover:text-cyan-400 transition-all"
+                                        >
+                                            <ExternalLink size={18} />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="p-6">
-                                <span className="text-sm font-semibold text-green-500 uppercase tracking-wider group-hover:text-emerald-500 transition-colors duration-300">{project.category}</span>
-                                <h3 className="text-xl font-bold mt-2 text-gray-900 dark:text-white group-hover:text-green-600 transition-colors duration-300">{project.title}</h3>
-                                <p className="text-gray-500 mt-2 text-sm line-clamp-3 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors duration-300">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-12">
+                        <Button href="/blog" asLink variant="outline" className="px-8 py-3">
+                            View All Articles
+                        </Button>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
