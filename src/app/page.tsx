@@ -7,18 +7,30 @@ import Blog from '@/components/home/Blog';
 import Contact from '@/components/home/Contact';
 import SectionReveal from '@/components/common/SectionReveal';
 import { useScrollHash } from '@/hooks/useScrollHash';
+import Experience from '@/components/home/Experience';
+import TechStack from '@/components/home/TechStack';
 
 export default function Home() {
     useScrollHash();
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-black">
             <section id="hero">
                 <Hero />
             </section>
             <section id="about">
                 <SectionReveal delay={0} direction="up">
                     <About />
+                </SectionReveal>
+            </section>
+            <section id="tech-stack">
+                <SectionReveal delay={0} direction="up">
+                    <TechStack />
+                </SectionReveal>
+            </section>
+            <section id="experience">
+                <SectionReveal delay={0} direction="up">
+                    <Experience />
                 </SectionReveal>
             </section>
             <section id="portfolio">
