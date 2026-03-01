@@ -99,11 +99,11 @@ const skills = [
 
 const Portfolio = () => {
     return (
-        <div className="min-h-screen bg-[#05070a] text-slate-200 flex flex-col">
+        <div className="min-h-screen  text-slate-200 flex flex-col">
             {/* Navigation Tabs */}
-            <nav className="border-b border-slate-900 bg-slate-950/50 backdrop-blur-sm sticky top-0 z-50">
+            <nav className="backdrop-blur-sm sticky top-0 z-50">
                 <div className="max-w-6xl mx-auto flex gap-8">
-                    <h1 className={`relative px-6 py-4 text-sm transition-all text-cyan-400 font-bold`}>
+                    <h1 className={`relative px-6 py-4 text-lg transition-all text-cyan-400 font-medium`}>
                         Show Case Project
                         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-500 to-transparent" />
                     </h1>
@@ -125,7 +125,7 @@ const Portfolio = () => {
                         {projects.slice(0, 4).map((proj) => (
                             <div
                                 key={proj.id}
-                                className="group relative bg-slate-950/40 border border-slate-900 hover:border-cyan-500/40 transition-all duration-500"
+                                className="group relative bg-slate-950/40 border border-slate-900/20 hover:border-cyan-500/40 transition-all duration-500"
                             >
                                 <div className="p-3 sm:p-8 flex flex-col md:flex-row gap-8">
                                     <div className="w-full md:w-48 h-32 bg-slate-900 border border-slate-800 flex items-center justify-center relative overflow-hidden">
