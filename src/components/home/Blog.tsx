@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Button from '@/components/common/Button';
 
 const blogPosts = [
     {
@@ -31,20 +32,20 @@ const blogPosts = [
 
 const Blog = () => {
     return (
-        <section id="blog" className="py-20 bg-white dark:bg-black">
-            <div className="container mx-auto px-6">
+        <section id="blog" className="py-20 bg-black">
+            <div className="max-w-6xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-emerald-500 to-green-600 mb-4">
                         Latest Insights
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-gray-400 max-w-2xl mx-auto">
                         Thoughts on design, development, and the future of digital experiences.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogPosts.map((post) => (
-                        <div key={post.id} className="group flex flex-col h-full bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+                        <div key={post.id} className="group flex flex-col h-full bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-700">
                             <div className="relative h-48 overflow-hidden">
                                 <Image
                                     src={post.imageUrl}
@@ -54,20 +55,20 @@ const Blog = () => {
                                     className="object-cover transform group-hover:scale-110 transition-transform duration-500"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
-                                <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-green-600 dark:text-green-400 z-10">
+                                <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-green-400 z-10">
                                     {post.category}
                                 </div>
                             </div>
 
                             <div className="p-6 grow flex flex-col">
                                 <div className="text-sm text-gray-500 mb-2">{post.date}</div>
-                                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-green-600 transition-colors">
+                                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-green-600 transition-colors">
                                     {post.title}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 mb-4 grow line-clamp-3">
+                                <p className="text-gray-400 mb-4 grow line-clamp-3">
                                     {post.excerpt}
                                 </p>
-                                <Link href={`#blog-${post.id}`} className="inline-flex items-center font-medium text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 transition-colors mt-auto">
+                                <Link href={`#blog-${post.id}`} className="inline-flex items-center font-medium text-green-400 hover:text-green-300 transition-colors mt-auto">
                                     Read Article
                                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -79,9 +80,9 @@ const Blog = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                    <Link href="/blog" className="hover-effect-btn px-8 py-3 border border-gray-300 dark:border-gray-700 rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors inline-block">
+                    <Button href="/blog" asLink variant="outline" className="px-8 py-3">
                         View All Articles
-                    </Link>
+                    </Button>
                 </div>
             </div>
         </section>
