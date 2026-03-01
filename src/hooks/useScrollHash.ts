@@ -16,7 +16,7 @@ export function useScrollHash(options: ScrollHashOptions = {}) {
         const observer = new IntersectionObserver(
             (entries) => {
                 // Find the section that's most in view (highest intersectionRatio)
-                const visibleSection = entries.reduce((prev, current) => 
+                const visibleSection = entries.reduce((prev, current) =>
                     current.intersectionRatio > prev.intersectionRatio ? current : prev
                 );
 
