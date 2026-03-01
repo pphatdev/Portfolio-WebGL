@@ -24,23 +24,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
-            <body
-                className={`${poppins.variable} antialiased`}
-            >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="dark"
-                    forcedTheme="dark"
-                    enableSystem={false}
-                    disableTransitionOnChange
-                >
-                    <Header />
-                    <main>
-                        {children}
-                    </main>
-                    <Footer />
-                </ThemeProvider>
+        <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+            <body className={`${poppins.variable} antialiased`}>
+                {/* <Header /> */}
+                <main>
+                    {children}
+                </main>
+                <Footer />
             </body>
         </html>
     );
