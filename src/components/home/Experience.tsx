@@ -14,7 +14,7 @@ const TechCore = ({ name, version, category }: { name: string; version: string; 
     const theme = themes[category as keyof typeof themes] || themes.default;
 
     return (
-        <div className={`flex items-center gap-3 px-3 py-2 border rounded-sm transition-all duration-300 hover:scale-105 group/core ${theme}`}>
+        <div className={`flex items-center gap-3 px-3 py-2 border transition-all duration-300 hover:scale-105 group/core ${theme}`}>
             <div className="relative">
                 <div className="w-2 h-2 rounded-full bg-current animate-pulse shadow-[0_0_8px_currentColor]" />
             </div>
@@ -132,9 +132,9 @@ const Experience = () => {
 
     return (
         <div ref={sectionRef} data-stagger-item>
-            <nav className="border-b border-slate-900 bg-slate-950/50 backdrop-blur-sm sticky top-0 z-50">
+            <nav className="backdrop-blur-sm sticky top-0 z-50">
                 <div className="max-w-6xl mx-auto flex gap-8">
-                    <h1 className={`relative px-6 py-4 text-sm transition-all text-cyan-400 font-bold`}>
+                    <h1 className={`relative px-6 py-4 text-lg transition-all text-cyan-400 font-medium`}>
                         Experience Timeline
                         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-cyan-500 to-transparent" />
                     </h1>
